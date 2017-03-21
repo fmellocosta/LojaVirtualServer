@@ -1,4 +1,4 @@
-resource\Produto.class
-dao\ProdutoDao.class
-controller\ProdutoController.class
-dao\ProdutoEntity.class
+br\com\casa\controller\ProdutoController.class
+br\com\casa\dao\ProdutoDao.class
+br\com\casa\resource\Produto.class
+br\com\casa\dao\ProdutoEntity.class
