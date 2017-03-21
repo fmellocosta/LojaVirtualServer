@@ -1,4 +1,8 @@
 br\com\casa\controller\ProdutoController.class
-br\com\casa\dao\ProdutoDao.class
+br\com\casa\dao\PedidoEntity.class
+br\com\casa\resource\Pedido.class
 br\com\casa\resource\Produto.class
 br\com\casa\dao\ProdutoEntity.class
+br\com\casa\controller\PedidoController.class
+br\com\casa\dao\ProdutoDAO.class
+br\com\casa\dao\PedidoDAO.class

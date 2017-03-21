@@ -6,10 +6,6 @@ public class Produto {
 	private String nome;
 	private Float preco;
 
-	public Produto() {
-		
-	}
-
 	public Produto(int id, String nome, Float preco) {
 		super();
 		this.id = id;

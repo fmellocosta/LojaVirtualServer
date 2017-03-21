@@ -6,12 +6,12 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-public class ProdutoDao {
+public class ProdutoDAO {
 
 	private final EntityManagerFactory entityManagerFactory;
 	private final EntityManager entityManager;
  
-	public ProdutoDao(){
+	public ProdutoDAO(){
 		this.entityManagerFactory = Persistence.createEntityManagerFactory("persistence_unit_db");
 		this.entityManager = this.entityManagerFactory.createEntityManager();
 	}
