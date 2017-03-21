@@ -1,0 +1,4 @@
+resource\Produto.class
+dao\ProdutoDao.class
+controller\ProdutoController.class
+dao\ProdutoEntity.class
