@@ -5,12 +5,18 @@ public class Produto {
 	private int id;
 	private String nome;
 	private Float preco;
-
-	public Produto(int id, String nome, Float preco) {
+	private String imagem;
+	
+	public Produto() {
+		
+	}
+	
+	public Produto(int id, String nome, Float preco, String imagem) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.preco = preco;
+		this.setImagem(imagem);
 	}
 
 	public int getId() {
@@ -35,6 +41,14 @@ public class Produto {
 
 	public void setPreco(Float preco) {
 		this.preco = preco;
+	}
+
+	public String getImagem() {
+		return imagem;
+	}
+
+	public void setImagem(String imagem) {
+		this.imagem = imagem;
 	}	
 	
 }

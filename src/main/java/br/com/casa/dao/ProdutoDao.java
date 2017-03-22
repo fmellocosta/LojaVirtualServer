@@ -16,10 +16,11 @@ public class ProdutoDAO {
 		this.entityManager = this.entityManagerFactory.createEntityManager();
 	}
  
-	public void add(ProdutoEntity produtoEntity) {
+	public int add(ProdutoEntity produtoEntity) {
 		this.entityManager.getTransaction().begin();
 		this.entityManager.persist(produtoEntity);
 		this.entityManager.getTransaction().commit();
+		return produtoEntity.getId();
 	}
  
 	public void update(ProdutoEntity produtoEntity){

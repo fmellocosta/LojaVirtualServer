@@ -8,6 +8,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 
 import br.com.casa.dao.ProdutoDAO;
 import br.com.casa.dao.ProdutoEntity;
@@ -19,26 +20,24 @@ public class ProdutoController {
 	private final ProdutoDAO produtoDAO = new ProdutoDAO();
 	
 	@POST	
-	@Consumes("application/json; charset=UTF-8")
-	@Produces("application/json; charset=UTF-8")
+	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
 	@Path("/cadastrar")	
-	public String cadastrar(Produto produto) {
+	public ProdutoEntity cadastrar(Produto produto) {
 		
 		ProdutoEntity entity = new ProdutoEntity();
 		
-		try {
-			entity.setNome(produto.getNome());
-			entity.setPreco(produto.getPreco());
-			produtoDAO.add(entity);
-			return "Produto cadastrado com sucesso!";
-		} catch (Exception e) {
-			return "Erro ao cadastrar um produto: " + e.getMessage();
-		}		
+		entity.setNome(produto.getNome());
+		entity.setPreco(produto.getPreco());
+		entity.setImagem(produto.getImagem());
+		entity.setId(produtoDAO.add(entity));
+		
+		return entity;
 		
 	}
 
 	@GET
-	@Produces("application/json; charset=UTF-8")
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
 	@Path("/listar")
 	public List<Produto> listar(){
  
@@ -46,7 +45,7 @@ public class ProdutoController {
 		List<ProdutoEntity> listaProdutos = produtoDAO.getAll();
  
 		for (ProdutoEntity entity : listaProdutos) {
-			produtos.add(new Produto(entity.getId(), entity.getNome(),entity.getPreco()));
+			produtos.add(new Produto(entity.getId(), entity.getNome(), entity.getPreco(), entity.getImagem()));
 		}
  
 		return produtos;

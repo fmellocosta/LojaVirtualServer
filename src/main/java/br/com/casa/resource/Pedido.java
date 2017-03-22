@@ -7,6 +7,10 @@ public class Pedido {
 	private String nomeProduto;
 	private int quantidade;
 
+	public Pedido() {
+		
+	}
+	
 	public Pedido(int id, String nomeProduto, int quantidade) {
 		super();
 		this.id = id;

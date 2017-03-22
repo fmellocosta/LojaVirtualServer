@@ -22,6 +22,9 @@ public class ProdutoEntity {
 	@Column(name="preco")
 	private Float preco;
 
+	@Column(name="imagem")	
+	private String imagem;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -45,7 +48,13 @@ public class ProdutoEntity {
 	public void setPreco(Float preco) {
 		this.preco = preco;
 	}
- 
-	
+
+	public String getImagem() {
+		return imagem;
+	}
+
+	public void setImagem(String imagem) {
+		this.imagem = imagem;
+	}
 	
 }

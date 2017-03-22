@@ -16,10 +16,11 @@ public class PedidoDAO {
 		this.entityManager = this.entityManagerFactory.createEntityManager();
 	}
  
-	public void add(PedidoEntity pedidoEntity) {
+	public int add(PedidoEntity pedidoEntity) {
 		this.entityManager.getTransaction().begin();
 		this.entityManager.persist(pedidoEntity);
 		this.entityManager.getTransaction().commit();
+		return pedidoEntity.getId();		
 	}
  
 	public void update(PedidoEntity pedidoEntity){
@@ -30,7 +31,7 @@ public class PedidoDAO {
  
 	@SuppressWarnings("unchecked")
 	public List<PedidoEntity> getAll(){
-		return this.entityManager.createQuery("SELECT ped FROM PedidoEntity ped, ProdutoEntity prod WHERE ped.idProduto = prod.id ORDER BY ped.id").getResultList();
+		return this.entityManager.createQuery("SELECT ped FROM PedidoEntity ped ORDER BY ped.id").getResultList();
 	}	
 	
 	public PedidoEntity get(Integer codigo){
