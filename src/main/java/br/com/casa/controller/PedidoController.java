@@ -13,7 +13,6 @@ import javax.ws.rs.core.MediaType;
 import br.com.casa.dao.PedidoDAO;
 import br.com.casa.dao.PedidoEntity;
 import br.com.casa.resource.Pedido;
-import br.com.casa.resource.Produto;
 
 @Path("/pedido")
 public class PedidoController {
@@ -21,7 +20,7 @@ public class PedidoController {
 	private final PedidoDAO pedidoDAO = new PedidoDAO();
 
 	@GET
-	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
 	@Path("/listar")
 	public List<Pedido> listar(){
  
@@ -37,15 +36,18 @@ public class PedidoController {
 	}
 	
 	@POST
-    @Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-    @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+    @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
 	@Path("/cadastrar")	
-	public PedidoEntity cadastrar(Produto produto) {
+	public PedidoEntity cadastrar(Pedido pedido) {
 		
 		PedidoEntity entity = new PedidoEntity();
 		
-		entity.setIdProduto(produto.getId());
+		entity.setNome(pedido.getNome());
+		entity.setCartao(pedido.getCartao());
+		entity.setIdProduto(pedido.getId());
 		entity.setQuantidade(1);
+		
 		entity.setId(pedidoDAO.add(entity));
 		
 		return entity;

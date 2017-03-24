@@ -22,6 +22,28 @@ public class PedidoEntity {
 	@Column(name="quantidade")
 	private int quantidade;
 
+	@Column(name="nome")
+	private String nome;
+	
+	@Column(name="cartao")
+	private int cartao;
+	
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public int getCartao() {
+		return cartao;
+	}
+
+	public void setCartao(int cartao) {
+		this.cartao = cartao;
+	}
+
 	public Integer getId() {
 		return id;
 	}
